@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GiveWear - Registrierung</title>
+    <link rel="icon" type="image/png" href="./assets/img/logo_v2.png">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Eigenes CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="./assets/img/logo_v2.png" width="36" height="36" class="me-2" alt="GiveWear Logo">
+                GiveWear
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+
+                <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Start</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#form">Spendenformular</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#about">Über uns</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#contact">Kontakt</a>
+                </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <main>
+
+        <!-- BESTÄTIGUNG -->
+        <div class="container py-5 d-none" id="success">
+            <div class="text-center mb-4">
+                <h1 class="text-success">&#x2713; Registrierung erfolgreich</h1>
+                <p class="text-muted">
+                    Deine Kleiderspende wurde erfolgreich registriert.
+                </p>
+            </div>
+
+            <div class="card p-4 shadow-sm">
+                <h5 class="mb-3">Details deiner Spende</h5>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <strong>Art der Kleidung:</strong>
+                        <span id="conf-clothing"></span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <strong>Krisengebiet:</strong>
+                        <span id="conf-region"></span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <strong>Art der Abgabe:</strong>
+                        <span id="conf-type"></span>
+                    </li>
+
+                    <li class="list-group-item" id="conf-address-row">
+                        <strong>Abholadresse:</strong>
+                        <span id="conf-address"></span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <strong>Datum & Uhrzeit:</strong>
+                        <span id="conf-datetime"></span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- BUTTON -->
+            <div class="text-center mt-4">
+                <a href="index.html" class="btn btn-secondary">
+                    Neue Spende erfassen
+                </a>
+            </div>
+        </div>
+
+        <!-- FEHLER -->
+        <div class="container py-5 d-none" id="failure">
+            <div class="text-center mb-4">
+                <h1 class="text-danger">&#x2717; Registrierung fehlgeschlagen</h1>
+                <p class="text-muted">
+                    Deine Kleiderspende konnte nicht registriert werden!
+                </p>
+
+                <!-- BUTTON -->
+                <div class="text-center mt-4">
+                    <a href="index.html" class="btn btn-secondary">
+                        Neue Spende erfassen
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-light pt-4 pb-3 mt-5">
+        <div class="container">
+            <div class="row">
+
+                <!-- Projekt -->
+                <div class="col-md-4 mb-3">
+                    <h6 class="text-uppercase">GiveWear</h6>
+                    <p class="small mb-0">
+                        GiveWear ist ein Kleiderspenden-Portal. Ziel ist die digitale Koordination von Kleiderspenden
+                        für internationale Hilfsprojekte.
+                    </p>
+                </div>
+
+                <!-- Kontakt -->
+                <div class="col-md-4 mb-3" id="contact">
+                    <h6 class="text-uppercase">Kontakt</h6>
+                    <p class="small mb-1">E-Mail: <a href="mailto:support@givewear.example" class="text-light">support@givewear.example</a></p>
+                    <p class="small mb-1">Telefon: +49 000 000000</p>
+                    <p class="small mb-0">Servicezeiten: Mo-Fr von 09:00 bis 17:00 Uhr</p>
+                </div>
+
+                <!-- Rechtliches -->
+                <div class="col-md-4 mb-3">
+                    <h6 class="text-uppercase">Rechtliches</h6>
+                    <ul class="list-unstyled small">
+                    <li><a href="#" class="text-light text-decoration-none">Impressum</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Datenschutz</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Nutzungsbedingungen</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <hr class="border-light">
+
+            <div class="text-center small">
+                &copy; 2026 GiveWear - Alle Rechte vorbehalten.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="./assets/js/confirmation.js"></script>
+</body>
+</html>
