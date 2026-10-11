@@ -8,14 +8,16 @@ export default [
   {
     files: ["src/assets/js/**/*.js"],
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "script",
-      globals: {
-        window: "readonly",
-        document: "readonly",
-        console: "readonly",
-        alert: "readonly",
-      },
+        ecmaVersion: "latest",
+        sourceType: "script",
+        globals: {
+            window: "readonly",
+            document: "readonly",
+            console: "readonly",
+            alert: "readonly",
+            localStorage: "readonly",
+            bootstrap: "readonly",
+        },
     },
     rules: {
       "no-unused-vars": "warn",
