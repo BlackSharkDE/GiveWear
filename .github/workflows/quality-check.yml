@@ -35,6 +35,6 @@ jobs:
     needs: eslint
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Build Docker image
         run: docker build -t givewear:latest .
