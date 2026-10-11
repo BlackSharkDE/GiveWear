@@ -9,24 +9,32 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# What happens
+# Jobs
 jobs:
+
+  # 1. Linting
   eslint:
     name: JavaScript Lint
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-
       - name: Install ESLint dependencies
         run: npm install --no-save --package-lock=false eslint@10 @eslint/js@10
-
       - name: Run ESLint
         run: npx eslint src/assets/js/index.js src/assets/js/confirmation.js
 
+  # 2. Building the Docker image
+  build:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    needs: eslint
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Build Docker image
+        run: docker build -t givewear:latest .
