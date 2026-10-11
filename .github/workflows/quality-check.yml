@@ -45,7 +45,7 @@ jobs:
       - name: Save Docker image
         run: docker save givewear:latest -o givewear-image.tar
       - name: Upload Docker image
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: givewear-image
           path: givewear-image.tar
@@ -61,7 +61,7 @@ jobs:
       packages: write
     steps:
       - name: Download Docker image
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: givewear-image
       - name: Load Docker image
