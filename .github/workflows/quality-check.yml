@@ -24,8 +24,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install ESLint dependencies
+        run: npm install --no-save --package-lock=false eslint@10 @eslint/js@10
+
       - name: Run ESLint
-        run: |
-          npx --yes --package eslint@9 --package @eslint/js@9 \
-            eslint src/assets/js/index.js src/assets/js/confirmation.js \
-            --config eslint.config.js
+        run: npx eslint src/assets/js/index.js src/assets/js/confirmation.js
+

@@ -6,10 +6,16 @@ export default [
   },
   js.configs.recommended,
   {
-    files: ["src/js/**/*.js"],
+    files: ["src/assets/js/**/*.js"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "script",
+      globals: {
+        window: "readonly",
+        document: "readonly",
+        console: "readonly",
+        alert: "readonly",
+      },
     },
     rules: {
       "no-unused-vars": "warn",
