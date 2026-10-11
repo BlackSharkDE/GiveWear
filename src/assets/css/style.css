@@ -1,0 +1,25 @@
+/**
+ * Styles für die gesamte Seite
+ */
+
+/*====================================================================================*/
+/* Footer */
+
+/* Damit der Footer am Seitenende verbleibt, auch wenn wenig Content auf der Seite ist */
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex: 1;
+}
+
+/* Überschriften anpassen */
+footer h6 {
+    font-weight: bold;
+}
+
+/*====================================================================================*/
