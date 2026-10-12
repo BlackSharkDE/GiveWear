@@ -78,3 +78,29 @@ jobs:
           IMAGE="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/givewear"
           docker push "$IMAGE:latest"
           docker push "$IMAGE:${GITHUB_SHA}"
+  
+  # 4. Deploy to Azure Container Apps
+  deploy:
+    name: Deploy to Azure Container Apps
+    runs-on: ubuntu-latest
+    needs: publish
+
+    # Required for OIDC authentication
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Log in to Azure using OIDC
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy new image to Azure Container Apps
+        run: |
+          az containerapp update \
+            --name givewear-app \
+            --resource-group rg-givewear \
+            --image "ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/givewear:${GITHUB_SHA}"
