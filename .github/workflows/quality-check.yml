@@ -68,11 +68,13 @@ jobs:
         run: docker load -i givewear-image.tar
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
-      - name: Tag Docker image
+      - name: Tag Docker image (latest + Commit SHA)
         run: |
-          IMAGE="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/givewear:latest"
-          docker tag givewear:latest "$IMAGE"
+          IMAGE="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/givewear"
+          docker tag givewear:latest "$IMAGE:latest"
+          docker tag givewear:latest "$IMAGE:${GITHUB_SHA}"
       - name: Push Docker image
         run: |
-          IMAGE="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/givewear:latest"
-          docker push "$IMAGE"
+          IMAGE="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/givewear"
+          docker push "$IMAGE:latest"
+          docker push "$IMAGE:${GITHUB_SHA}"
